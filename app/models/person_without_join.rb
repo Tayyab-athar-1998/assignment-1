@@ -1,0 +1,2 @@
+class PersonWithoutJoin < ApplicationRecord
+end
