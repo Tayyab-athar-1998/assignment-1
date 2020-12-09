@@ -11,13 +11,13 @@ class PersonWithJoin < ApplicationRecord
     value = "{Name :'#{self.name}'"
     memo = [self.name]
     while parent!=nil do
-      parent = parent_person.parent
       if memo.include? parent
           return 'Cycle detected'
       end
-      parent_person_name = parent_person.name
-      memo.append(parent_person_name)
+      parent_person_name = parent.name
       value.concat(",Parent :{Name :'#{parent_person_name}'}")
+      parent = parent.parent
+      memo.append(parent)
     end
     value.concat("}")
     return value
