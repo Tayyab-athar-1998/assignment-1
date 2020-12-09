@@ -1,6 +1,6 @@
 class PersonWithJoin < ApplicationRecord
-  has_many :childs, class_name: "PersonWithJoin",
-                          foreign_key: "child_id"
+  has_many :parent, class_name: "PersonWithJoin",
+                          foreign_key: "parent_id"
  
-  belongs_to :parent, class_name: "PersonWithJoin", optional: true
+  belongs_to :child, class_name: "PersonWithJoin", optional: true
 end
