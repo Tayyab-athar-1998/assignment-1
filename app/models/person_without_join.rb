@@ -26,7 +26,7 @@ class PersonWithoutJoin < ApplicationRecord
 
     private
     def if_parent_exists
-        if parent != nil && PersonWithoutJoin.find_by_name parent == nil
+        if parent != nil && PersonWithoutJoin.find_by_name(parent) == nil
             errors.add(:parent, "Parent with value #{parent} doesnot exists.")
         end
     end
